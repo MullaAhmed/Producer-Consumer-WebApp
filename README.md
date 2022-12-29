@@ -23,10 +23,10 @@ Design Schematic
 4. Once the response is sent to the Kafka server we can produce N number of consumers doing different things. We can add functionalities in form of consumers without causing an overhaul of the existing services.
 5. The advantage of using Kafka is that we can have virtually unlimited consumers since each consumer requires very little computing power.
 6. **The Google Sheets Consumer (Main.py):**
-  a. The consumer receives a JSON object as a response, then it is converted to a data frame and the form id is extracted from it.
-  b. The extracted form id is used to search for an existing sheet with the same name in the created folder.
-    i. If the sheet exists the new data will be appended to it without repeating the headers
-    ii. If the sheet does not exist it will be created and the data frame will be pushed to the sheet with headers.
+&nbsp &nbsp a. The consumer receives a JSON object as a response, then it is converted to a data frame and the form id is extracted from it.
+&nbsp &nbsp b. The extracted form id is used to search for an existing sheet with the same name in the created folder.
+&nbsp &nbsp &nbsp i. If the sheet exists the new data will be appended to it without repeating the headers
+&nbsp &nbsp &nbsp ii. If the sheet does not exist it will be created and the data frame will be pushed to the sheet with headers.
 7. The consumer is set to read from the beginning once it starts and after that even if the consumer fails, Kafkas Offset commits feature will remember the last read response and continue from there once the consumer is available.
 8. We can also duplicate data into multiple nodes to prevent data loss if any node malfunctions.
 
